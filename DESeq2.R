@@ -138,9 +138,9 @@ base_mean <- rowMeans(mat)
 mat.scaled <- t(apply(mat, 1, scale)) #center and scale each column (Z-score) then transpose
 colnames(mat.scaled)<- c("XI_R1","XI_R2","XI_R3","XIV_R1","XIV_R2","XIV_R3","XX_R1", "XX_R2", "XX_R3")
 
-specific_gene_names <- c("OCTVUL_1B029026", "OCTVUL_1B026195", "OCTVUL_1B025607", "OCTVUL_1B010475", "OCTVUL_1B001263", "OCTVUL_1B031766", "OCTVUL_1B021910", "OCTVUL_1B010083", "OCTVUL_1B022853", "OCTVUL_1B008109", "OCTVUL_1B028282", "OCTVUL_1B027308","OCTVUL_1B027203", "OCTVUL_1B023609", "OCTVUL_1B031461", "OCTVUL_1B023804", "OCTVUL_1B015743", "OCTVUL_1B024495")
+specific_gene_names <- c("OCTVUL_1B029026", "OCTVUL_1B026195", "OCTVUL_1B025607", "OCTVUL_1B008669" ,"OCTVUL_1B010475", "OCTVUL_1B001263", "OCTVUL_1B031766", "OCTVUL_1B021910", "OCTVUL_1B010083", "OCTVUL_1B022853", "OCTVUL_1B008109", "OCTVUL_1B028282", "OCTVUL_1B027308","OCTVUL_1B027203", "OCTVUL_1B023609", "OCTVUL_1B031461", "OCTVUL_1B023804", "OCTVUL_1B015743", "OCTVUL_1B024495")
 rows_keep <- which(rownames(mat.scaled) %in% specific_gene_names,nrow(mat.scaled))
-rows_keep
+rows_keep 
 
 h <- Heatmap(mat.scaled[rows_keep,], cluster_rows = F, 
               column_labels = colnames(mat.scaled),row_labels = df.top$symbol[rows_keep], name="Z-score",
